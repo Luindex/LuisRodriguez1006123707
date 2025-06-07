@@ -4,9 +4,12 @@ productos = []
 
 def crear_producto():
     nombre = input("Nombre del producto: ")
-    precio = float(input("Precio del producto: "))
-    productos.append({"nombre": nombre, "precio": precio})
-    print("Producto agregado correctamente.")
+    try:
+        precio = float(input("Precio del producto: "))
+        productos.append({"nombre": nombre, "precio": precio})
+        print("Producto agregado correctamente.")
+    except ValueError:
+        print("Precio inválido. Intente nuevamente.")
 
 def listar_productos():
     if not productos:
@@ -14,6 +17,7 @@ def listar_productos():
     else:
         for i, prod in enumerate(productos):
             print(f"{i+1}. {prod['nombre']} - ${prod['precio']:.2f}")
+        print(f"Total de productos: {len(productos)}")
 
 def actualizar_producto():
     listar_productos()
@@ -42,7 +46,7 @@ def eliminar_producto():
         print("Entrada inválida.")
 
 def mostrar_menu():
-    print("\n--- MENÚ CRUD PRODUCTOS ---")
+    print("\n=== SISTEMA CRUD DE PRODUCTOS v1.0 ===")
     print("1. Agregar producto")
     print("2. Listar productos")
     print("3. Actualizar producto")
