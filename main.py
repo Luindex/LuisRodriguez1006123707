@@ -9,7 +9,7 @@ def crear_producto():
         productos.append({"nombre": nombre, "precio": precio})
         print("Producto agregado correctamente.")
     except ValueError:
-        print("Precio inválido. Intente nuevamente.")
+        print("Precio No valido. Intente nuevamente.")
 
 def listar_productos():
     if not productos:
