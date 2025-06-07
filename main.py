@@ -1,5 +1,5 @@
 # main.py
-
+import sys
 productos = []
 
 def crear_producto():
@@ -72,4 +72,7 @@ def main():
             print("Opción inválida.")
 
 if __name__ == "__main__":
-    main()
+    if sys.stdin.isatty():
+        main()
+    else:
+        print("Entorno no interactivo detectado. Saltando ejecución del menú.")
